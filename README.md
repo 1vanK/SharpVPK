@@ -36,3 +36,10 @@ foreach(var directory in archive.Directories)
 Console.WriteLine("Done");
 Console.ReadLine();
 ```
+
+# Command line extractor
+
+```
+rmdir /s /q %~dp0Unpacked
+VpkExtract.exe "c:\Program Files (x86)\Steam\steamapps\common\Half-Life 2\hl2\hl2_textures_dir.vpk" "%~dp0Unpacked" 2
+```

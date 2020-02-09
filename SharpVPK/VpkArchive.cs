@@ -54,11 +54,16 @@ namespace SharpVPK
         private void LoadParts(string filename)
         {
             Parts = new List<ArchivePart>();
-            var fileBaseName = filename.Split('_')[0];
+            var fileBaseName = filename.Substring(0, filename.LastIndexOf('_') + 1);
+
             foreach (var file in Directory.GetFiles(Path.GetDirectoryName(filename)))
             {
-                if (file.Split('_')[0] != fileBaseName || file == filename)
+                if (file == filename || !file.StartsWith(fileBaseName))
                     continue;
+
+                if (string.Compare(Path.GetExtension(file), ".vpk", true) != 0)
+                    continue;
+
                 var fi = new FileInfo(file);
                 string[] spl = file.Split('_');
                 var partIdx = Int32.Parse(spl[spl.Length - 1].Split('.')[0]);
