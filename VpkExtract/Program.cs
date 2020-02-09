@@ -1,4 +1,4 @@
-﻿// Command line VPK extractor+
+﻿// Command line VPK extractor
 
 using System;
 using System.IO;
