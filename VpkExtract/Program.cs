@@ -17,8 +17,6 @@ namespace VpkExtract
                 return;
             }
 
-            Directory.CreateDirectory(args[1]);
-
             var archive = new VpkArchive();
             archive.Load(args[0], args[2] == "1" ? VpkVersions.Versions.V1 : VpkVersions.Versions.V2);
 
